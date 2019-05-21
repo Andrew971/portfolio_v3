@@ -3,15 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@rematch/core": "^1.1.0",
+    "@rematch/loading": "^0.5.1",
+    "@rematch/persist": "^1.1.6",
+    "@rematch/select": "^2.0.4",
+    "axios": "^0.18.0",
+    "re-reselect": "^3.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-helmet": "^5.2.1",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "init": "yarn install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +39,67 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-snap": "^1.23.0",
+    "react-snapshot": "^1.3.0"
+  },
+  "reactSnapshot": {
+    "include": [
+      "/",
+      "/other"
+    ],
+    "exclude": [
+      "/signup",
+      "/other-path/exclude-me/**"
+    ],
+    "snapshotDelay": 300
+  },
+  "reactSnap": {
+  "port": 45678,
+  "source": "build",
+  "destination": null,
+  "concurrency": 4,
+  "include": ["/"],
+  "userAgent": "ReactSnap",
+  "headless": true,
+  "puppeteer": {
+    "cache": true
+  },
+  "puppeteerArgs": [],
+  "puppeteerExecutablePath": "undefined",
+  "puppeteerIgnoreHTTPSErrors": false,
+  "publicPath": "/",
+  "minifyCss": {},
+  "minifyHtml": {
+    "collapseBooleanAttributes": true,
+    "collapseWhitespace": true,
+    "decodeEntities": true,
+    "keepClosingSlash": true,
+    "sortAttributes": true,
+    "sortClassName": false
+  },
+  "viewport": {
+    "width": 480,
+    "height": 850
+  },
+  "sourceMaps": true,
+  "fixWebpackChunksIssue": "CRA1",
+  "removeBlobs": true,
+  "fixInsertRule": true,
+  "skipThirdPartyRequests": false,
+  "cacheAjaxRequests": false,
+  "http2PushManifest": false,
+  "ignoreForPreload": ["service-worker.js"],
+  "preconnectThirdParty": true,
+  "inlineCss": false,
+  "saveAs": "html",
+  "crawl": true,
+  "waitFor": false,
+  "externalServer": false,
+  "removeStyleTags": false,
+  "preloadImages": false,
+  "asyncScriptTags": false,
+  "removeScriptTags": false
   }
 }
