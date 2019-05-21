@@ -1,8 +1,16 @@
-import React from 'react';
+// import React from 'react';
+import {lazyWithPreload} from '../Constants/constMethod'
 // import Home from '../../Modules/Home'
 // import Other from '../../Modules/Other'
-const Home = React.lazy(() => import('../../Modules/Home'));
 // const Other = React.lazy(() => import('../../Modules/Other'));
+
+
+
+const preloadedHome = import(/* webpackChunkName: "Home" */ '../../Modules/Home');
+const Home = lazyWithPreload(() => preloadedHome);
+
+const preloadedOther = import(/* webpackChunkName: "Home" */ '../../Modules/Other');
+const Other = lazyWithPreload(() => preloadedOther);
 
 
 export default [
@@ -12,7 +20,7 @@ export default [
     isExact:true
   },
   {
-    component: Home,
+    component: Other,
     path: '/other',
     isExact:true,
     // routes: [

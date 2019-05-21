@@ -60,14 +60,16 @@
   "source": "build",
   "destination": null,
   "concurrency": 4,
-  "include": ["/"],
+  "include": [
+    "/",
+    "/other"
+  ],
   "userAgent": "ReactSnap",
   "headless": true,
   "puppeteer": {
     "cache": true
   },
   "puppeteerArgs": [],
-  "puppeteerExecutablePath": "undefined",
   "puppeteerIgnoreHTTPSErrors": false,
   "publicPath": "/",
   "minifyCss": {},

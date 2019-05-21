@@ -142,3 +142,10 @@ export function join(lookupTable, mainTable, lookupKey, mainKey, select) {
   mainTable.forEach((item)=>output.push(select(item, lookupIndex[item[mainKey]])))
   return output;
 };
+
+
+export const lazyWithPreload = (factory) => {
+  const Component = React.lazy(factory);
+  Component.preload = factory;
+  return Component;
+}
