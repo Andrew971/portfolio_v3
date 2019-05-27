@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import config from './config';
 
-const absoluteUrl = path => `https://yagd-9d9f8.firebaseapp.com${path}`;
-const seoImageURL = file => `https://yagd-9d9f8.firebaseapp.com/images/${file}`;
+const absoluteUrl = path => `${config.baseUrl}${path}`;
+const seoImageURL = file => `${config.imageBaseUrl}${file}`;
 
 const getMetaTags = ({
   title, description, url, contentType, published, updated, category, tags, twitter, image,
@@ -12,17 +13,17 @@ const getMetaTags = ({
     { itemprop: 'name', content: title },
     { itemprop: 'description', content: description },
     { name: 'description', content: description },
-    { name: 'twitter:site', content: '@stereobooster' },
-    { name: 'twitter:title', content: `${title} | yagd-9d9f8.firebaseapp.com` },
+    { name: 'twitter:site', content: `${config.defaultTwitterAccount}` },
+    { name: 'twitter:title', content: `${title} | ${config.baseUrl}` },
     { name: 'twitter:description', content: description },
-    { name: 'twitter:creator', content: twitter || '@stereobooster' },
-    { name: 'og:title', content: `${title} | yagd-9d9f8.firebaseapp.com` },
+    { name: 'twitter:creator', content: twitter || `${config.defaultTwitterAccount}` },
+    { name: 'og:title', content: `${title} | ${config.baseUrl}` },
     // Refers to the Open Graph content type (for Facebook–see "Object Types" table here)
     { name: 'og:type', content: contentType },
     { name: 'og:url', content: url },
     { name: 'og:description', content: description },
-    { name: 'og:site_name', content: 'yagd-9d9f8.firebaseapp.com' },
-    { name: 'og:locale', content: 'en_EN' },
+    { name: 'og:site_name', content: `${config.baseUrl}` },
+    { name: 'og:locale', content: `${config.locale}` },
     // { name: 'fb:app_id', content: '<FB App ID>' },
   ];
 

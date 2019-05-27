@@ -20,7 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
+    "postbuild": "react-snapshot",
+    "Serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "init": "yarn install"
@@ -47,7 +48,8 @@
   "reactSnapshot": {
     "include": [
       "/",
-      "/other"
+      "/other",
+      "/404"
     ],
     "exclude": [
       "/signup",
@@ -93,8 +95,8 @@
   "cacheAjaxRequests": false,
   "http2PushManifest": false,
   "ignoreForPreload": ["service-worker.js"],
-  "preconnectThirdParty": true,
-  "inlineCss": false,
+  "preconnectThirdParty": false,
+  "inlineCss": true,
   "saveAs": "html",
   "crawl": true,
   "waitFor": false,

@@ -1,25 +1,64 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import {connect} from 'react-redux';
 import {withRouter, Switch, Route} from 'react-router-dom'
 import NotFound from './Shared/404'
 import routeListe from './Utils/Constants/constantRoute'
 import {PublicRoute} from './Utils/Constants/constMethod'
 import {ThemeProvider} from 'styled-components';
+import SEO from './Utils/Lib/seo';
+import {AppBar} from './Components/AppBar';
+import {AppContainer,Main} from './Components/Container';
+import {Drawer} from './Components/Drawer';
+import Icon from './Components/Icon'
+
 // import PropTypes from 'prop-types';
-import './App.css';
-const LoadingMessage = () => (
-  "I'm loading..."
+
+const LoadingMessage = (props) => {
+  return(
+  "I'm loading."
 )
+  }
 
 function RootContainer(props) {
+  const [ state, setState ] = React.useState({
+    isSideMenuOpen: false,
+  })
+  const toggleSideMenuOpen = () =>{ 
+        
+    setState((prevState) => {
+
+    return {
+      isSideMenuOpen: !prevState.isSideMenuOpen
+    }
+  })
+}
+const {isSideMenuOpen} = state;
   const { Theme } =props;
   return (
     <ThemeProvider theme={Theme}>
     <React.Fragment>
-
-    <Helmet title="You Are Doing Great" />
     <React.Suspense fallback={<LoadingMessage />}>
+    <SEO
+        schema="AboutPage"
+        title="Base"
+        description="A starting point for Meteor applications."
+        path="/"
+        contentType="product"
+      />    
+      <AppBar>
+        <Icon name="simple-hamburger" open={isSideMenuOpen} onClick={() => toggleSideMenuOpen()}/>
+      </AppBar>
+      <AppContainer>
+      <Drawer
+            open={isSideMenuOpen}
+            width={5}
+            distance={100}
+            direction="left"
+            onClose={toggleSideMenuOpen}
+            id="clickIn">
+            <div>test</div>
+      </Drawer>
+      <Main>
     <Switch>
         {routeListe
           .map((route,n) =>{
@@ -32,7 +71,9 @@ function RootContainer(props) {
           <NotFound {...routeProps}/>}
         />
         </Switch>
-        </React.Suspense>
+        </Main>
+        </AppContainer>
+      </React.Suspense>
     </React.Fragment>
     </ThemeProvider>
 
