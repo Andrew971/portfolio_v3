@@ -9,14 +9,21 @@ import lazyLoadable from '../Lib/lazyLoadable'
 const preloadedHome = import(/* webpackChunkName: "Home" */ '../../Modules/Home');
 const Home = lazyLoadable(() => preloadedHome);
 
-const preloadedOther = import(/* webpackChunkName: "Other" */ '../../Modules/Other');
-const Other = lazyLoadable(() => preloadedOther);
+// const preloadedOther = 
+const Other = lazyLoadable(() => import(/* webpackChunkName: "Other" */ '../../Modules/Other'));
+// const preloadedOther = 
+const Table = lazyLoadable(() => import(/* webpackChunkName: "Table" */ '../../Modules/Table'));
 
 
 export default [
   {
     component: Home,
     path: '/',
+    isExact:true
+  },
+  {
+    component: Table,
+    path: '/table',
     isExact:true
   },
   {

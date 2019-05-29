@@ -8,7 +8,7 @@ export const validatePattern = (event,props) => {
 
 
   const {
-    pattern,
+    pattern={},
     // customPattern
   } = props;
   let validationPattern = "";
@@ -111,8 +111,8 @@ export const validatePattern = (event,props) => {
 
 export const applyFieldStyle = (event,state,updater,props) =>{
   const {
-    maxLength,
-    pattern,
+    max,
+    pattern={},
     customPattern
   } = props;
 
@@ -125,7 +125,7 @@ export const applyFieldStyle = (event,state,updater,props) =>{
   const emptyValue = element.value === "";
 
 
-  if(customPattern || pattern || maxLength){
+  if(customPattern || pattern || max){
   if(!condition){
     if(!element.required){
       parent.classList.remove('valid-input')

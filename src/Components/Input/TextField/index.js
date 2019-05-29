@@ -18,7 +18,7 @@ const TextField = React.memo(React.forwardRef((props, ref) => {
     icon,
     position,
     required,
-    pattern,
+    pattern={},
     errorMessage,
     withWordCounter,
   } = props;

@@ -38,9 +38,56 @@ function OtherContainer() {
           special:true,
           isEmail: false,
           maxLength: 10
-        }}
+          }}
           errorMessage="custom error message"
-          withWordCounter/>
+          withWordCounter
+          />
+      </div>
+      <div style={{
+        width: '25%',
+        marginTop: '2rem'
+      }}>
+        <TextField
+          ref={ref}
+          type="text"
+          label="Label test"
+          helperText="helper text"
+          placeholder="placeholder test"
+          icon={<Icon name= "profile" />}
+          position='start'
+          errorMessage="custom error message"
+          />
+      </div>
+      <div style={{
+        width: '25%',
+        marginTop: '2rem'
+      }}>
+        <TextField
+          ref={ref}
+          type="text"
+          label="Label test"
+          helperText="helper text"
+          placeholder="placeholder test"
+          icon={<Icon name= "profile" />}
+          position='start'
+          errorMessage="custom error message"
+          required
+          />
+      </div>
+      <div style={{
+        width: '25%',
+        marginTop: '2rem'
+      }}>
+        <TextField
+          ref={ref}
+          type="text"
+          label="Label test"
+          helperText="helper text"
+          placeholder="placeholder test"
+          icon={<Icon name= "profile" />}
+          position='end'
+          errorMessage="custom error message"
+          />
       </div>
     </React.Fragment>
   )

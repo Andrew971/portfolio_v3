@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 
 
-function useEventListener(eventName, handler, ref = global){
+function useEventListener(eventName, handler, ref = document){
   // Create a ref that stores handler
   const savedHandler = useRef();
   
